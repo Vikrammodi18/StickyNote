@@ -55,12 +55,13 @@ textarea::placeholder{
     font:800;
 }
 .addButton{
+    font-weight: 900;
     font-size: 18px;
     border:none;
     border-radius: 30px;
     color: rgb(53, 53, 191);
     height:40px;
-    width:90px;
+    width:80px;
     opacity:.8;
     background-color: rgb(115, 110, 110);
 }

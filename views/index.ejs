@@ -28,8 +28,11 @@
                     <h4><%=val%></h4>
                     <br>
                     <a href="http://localhost:3000/note/<%= val%>">Read more.</a>
-                    <a href="http://localhost:3000/note/<%= val%>/new">Edit</a>
-                    <button>Delete</button>
+                    <a href="http://localhost:3000/note/<%= val%>/new">Edit</a><br>
+                    <form method="post" action="/note/<%=val%>?_method=DELETE" >
+                        <button class="addButton">Delete</button>
+
+                </form>
                 </div>
                 <% }) %>
            <%}else {%> 

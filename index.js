@@ -28,7 +28,7 @@ app.post('/note',(req,res)=>{
     }
     data.tittle = tittle.replace(/\s+/g, '')
     
-    fs.writeFile(`${NoteDataPath}/${data.tittle}.txt`,JSON.stringify(data.content), (err)=>{
+    fs.writeFile(`${NoteDataPath}/${data.tittle}.txt`,data.content, (err)=>{
         if (err) console.error(err);
         else res.redirect('/note')
     })
@@ -56,6 +56,13 @@ app.patch('/note/:tittle',(req,res)=>{
         else res.redirect('/note')
     })
     
+})
+app.delete('/note/:tittle',(req,res)=>{
+    const{tittle} = req.params;
+    fs.unlink(`${NoteDataPath}/${tittle}`,(err)=>{
+        if(err) console.log(err);
+        else res.redirect('/note')
+    })
 })
 const port = 3000
 app.listen(port,()=>{
